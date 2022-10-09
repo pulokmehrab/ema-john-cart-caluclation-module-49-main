@@ -1,4 +1,3 @@
-import Product from "../components/Product/Product";
 import { getStoredCart } from "../utilities/fakedb";
 
 export const Loader = async()=>{
@@ -7,11 +6,17 @@ export const Loader = async()=>{
 
     // get cart
     const saveCart = getStoredCart();
-    console.log(saveCart);
+   
+    const initialCart =[];
+
     for(const id in saveCart){
-     const addedProduct = Products.find(Produc=>Product.id===id);
-     console.log(addedProduct);
+     const addedProduct = Products.find(Product =>Product.id===id);
+    if(addedProduct){
+        const quantity=saveCart[id];
+        addedProduct.quantity =quantity;
+        initialCart.push(addedProduct);  
+    }
     }
 
-    return Products;
+    return {Products:Products, initialCart: initialCart};
 }

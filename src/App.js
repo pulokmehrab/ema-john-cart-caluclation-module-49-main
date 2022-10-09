@@ -18,16 +18,16 @@ function App() {
           element:<Shop></Shop>
         },
         {
-          path: '/orders',
+          path: 'orders',
           loader: Loader,
           element: <Order></Order>
         },
         {
-          path: '/inventory',
+          path: 'inventory',
           element:<Inventory></Inventory>
         },
         {
-          path: '/about',
+          path: 'about',
           element:<About></About>
         }
         
